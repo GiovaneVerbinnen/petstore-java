@@ -4,7 +4,7 @@ public class Cavalo extends Mamifero{
 
 	public Cavalo(String nome, int idade, String dono, String cuidadosProprios, String alimentacao) {
 		super(nome, idade, dono, cuidadosProprios, alimentacao);
-		this.especie = "Equus ferus";
+		this.especie = "Cavalo";
 	}
 
 	private static final long serialVersionUID = 1L;
