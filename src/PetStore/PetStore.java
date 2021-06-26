@@ -31,7 +31,7 @@ public class PetStore  extends JFrame{
 	public Gato leGato (){
 
 		String [] valores = new String [6];
-		String [] nomeVal = {"Nome", "Idade", "Dono", "Cuidados próprios", "Alimentação", "Espécie"};
+		String [] nomeVal = {"Nome", "Idade", "Dono", "Cuidados próprios", "Alimentação"};
 		valores = leValores (nomeVal);
 
 		int idade = this.retornaInteiro(valores[1]);
@@ -43,7 +43,7 @@ public class PetStore  extends JFrame{
 	public Cao leCao (){
 
 		String [] valores = new String [6];
-		String [] nomeVal = {"Nome", "Idade", "Dono", "Cuidados próprios", "Alimentação", "Espécie"};
+		String [] nomeVal = {"Nome", "Idade", "Dono", "Cuidados próprios", "Alimentação"};
 		valores = leValores (nomeVal);
 
 		int idade = this.retornaInteiro(valores[1]);
@@ -54,7 +54,7 @@ public class PetStore  extends JFrame{
 	public Cavalo leCavalo (){
 
 		String [] valores = new String [6];
-		String [] nomeVal = {"Nome", "Idade", "Dono", "Cuidados próprios", "Alimentação", "Espécie"};
+		String [] nomeVal = {"Nome", "Idade", "Dono", "Cuidados próprios", "Alimentação"};
 		valores = leValores (nomeVal);
 
 		int idade = this.retornaInteiro(valores[1]);
