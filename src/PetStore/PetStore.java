@@ -11,9 +11,9 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JMenu;
 
-public class PetStore {
+
+public class PetStore  extends JFrame{
 	private ArrayList<Mamifero> mamiferos;
 
 	public PetStore() {
@@ -30,42 +30,53 @@ public class PetStore {
 
 	public Gato leGato (){
 
-		String [] valores = new String [3];
-		String [] nomeVal = {"Nome", "Idade", "Dono"};
+		String [] valores = new String [6];
+		String [] nomeVal = {"Nome", "Idade", "Dono", "Cuidados pr√≥prios", "Alimenta√ß√£o", "Esp√©cie"};
 		valores = leValores (nomeVal);
 
 		int idade = this.retornaInteiro(valores[1]);
 
-		Gato gato = new Gato (valores[0],idade,valores[2]);
+		Gato gato = new Gato (valores[0],idade,valores[2], valores[3], valores[4]);
 		return gato;
 	}
 
 	public Cao leCao (){
 
-		String [] valores = new String [3];
-		String [] nomeVal = {"Nome", "Idade", "Dono"};
+		String [] valores = new String [6];
+		String [] nomeVal = {"Nome", "Idade", "Dono", "Cuidados pr√≥prios", "Alimenta√ß√£o", "Esp√©cie"};
 		valores = leValores (nomeVal);
 
 		int idade = this.retornaInteiro(valores[1]);
 
-		Cao cao = new Cao (valores[0],idade,valores[2]);
+		Cao cao = new Cao (valores[0],idade,valores[2], valores[3], valores[4]);
 		return cao;
+	}
+	public Cavalo leCavalo (){
+
+		String [] valores = new String [6];
+		String [] nomeVal = {"Nome", "Idade", "Dono", "Cuidados pr√≥prios", "Alimenta√ß√£o", "Esp√©cie"};
+		valores = leValores (nomeVal);
+
+		int idade = this.retornaInteiro(valores[1]);
+
+		Cavalo cavalo = new Cavalo(valores[0],idade,valores[2], valores[3], valores[4]);
+		return cavalo;
 	}
 
 	private boolean intValido(String s) {
 		try {
-			Integer.parseInt(s); // MÈtodo est·tico, que tenta tranformar uma string em inteiro
+			Integer.parseInt(s); // M√©todo est√°tico, que tenta tranformar uma string em inteiro
 			return true;
-		} catch (NumberFormatException e) { // N„o conseguiu tranformar em inteiro e gera erro
+		} catch (NumberFormatException e) { // N√£o conseguiu tranformar em inteiro e gera erro
 			return false;
 		}
 	}
 	public int retornaInteiro(String entrada) { // retorna um valor inteiro
 		int numInt;
 
-		//Enquanto n„o for possÌvel converter o valor de entrada para inteiro, permanece no loop
+		//Enquanto n√£o for poss√≠vel converter o valor de entrada para inteiro, permanece no loop
 		while (!this.intValido(entrada)) {
-			entrada = JOptionPane.showInputDialog(null, "Valor incorreto!\n\nDigite um n˙mero inteiro.");
+			entrada = JOptionPane.showInputDialog(null, "Valor incorreto!\n\nDigite um n√∫mero inteiro.");
 		}
 		return Integer.parseInt(entrada);
 	}
@@ -78,7 +89,7 @@ public class PetStore {
 			for (int i=0; i < mamiferos.size(); i++)
 				outputStream.writeObject(mamiferos.get(i));
 		} catch (FileNotFoundException ex) {
-			JOptionPane.showMessageDialog(null,"ImpossÌvel criar arquivo!");
+			JOptionPane.showMessageDialog(null,"Imposs√≠vel criar arquivo!");
 			ex.printStackTrace();
 		} catch (IOException ex) {
 			ex.printStackTrace();
@@ -114,7 +125,7 @@ public class PetStore {
 		} catch (ClassNotFoundException ex) {
 			ex.printStackTrace();
 		} catch (FileNotFoundException ex) {
-			JOptionPane.showMessageDialog(null,"Arquivo com mamÌferos N√O existe!");
+			JOptionPane.showMessageDialog(null,"Arquivo com mam√≠feros N√ÉO existe!");
 			ex.printStackTrace();
 		} catch (IOException ex) {
 			ex.printStackTrace();
@@ -130,29 +141,31 @@ public class PetStore {
 		}
 	}
 
-	public void menuPetStore(){
+	public void menuPetStore (){
+
 		String menu = "";
 		String entrada;
 		int    opc1, opc2;
 
 		do {
 			menu = "Controle PetStore\n" +
-					"OpÁıes:\n" + 
-					"1. Entrar MamÌferos\n" +
-					"2. Exibir MamÌferos\n" +
-					"3. Limpar MamÌferos\n" +
-					"4. Gravar MamÌferos\n" +
-					"5. Recuperar MamÌferos\n" +
+					"Op√ß√µes:\n" + 
+					"1. Entrar Mam√≠feros\n" +
+					"2. Exibir Mam√≠feros\n" +
+					"3. Limpar Mam√≠feros\n" +
+					"4. Gravar Mam√≠feros\n" +
+					"5. Recuperar Mam√≠feros\n" +
 					"9. Sair";
 			entrada = JOptionPane.showInputDialog (menu + "\n\n");
 			opc1 = this.retornaInteiro(entrada);
 
 			switch (opc1) {
 			case 1:// Entrar dados
-				menu = "Entrada de Animais MamÌferos\n" +
-						"OpÁıes:\n" + 
-						"1. C„o\n" +
-						"2. Gato\n";
+				menu = "Entrada de Animais Mam√≠feros\n" +
+						"Op√ß√µes:\n" + 
+						"1. C√£o\n" +
+						"2. Gato\n" + 
+						"3. Cavalo\n";
 
 				entrada = JOptionPane.showInputDialog (menu + "\n\n");
 				opc2 = this.retornaInteiro(entrada);
@@ -162,14 +175,16 @@ public class PetStore {
 				break;
 				case 2: mamiferos.add((Mamifero)leGato());
 				break;
+				case 3: mamiferos.add((Mamifero)leCavalo());
+				break;
 				default: 
-					JOptionPane.showMessageDialog(null,"Animal mamÌfero para entrada N√O escolhido!");
+					JOptionPane.showMessageDialog(null,"Animal mam√≠fero para entrada N√ÉO escolhido!");
 				}
 
 				break;
 			case 2: // Exibir dados
 				if (mamiferos.size() == 0) {
-					JOptionPane.showMessageDialog(null,"Entre com animais mamÌferos primeiramente");
+					JOptionPane.showMessageDialog(null,"Entre com animais mam√≠feros primeiramente");
 					break;
 				}
 				String dados = "";
@@ -180,7 +195,7 @@ public class PetStore {
 				break;
 			case 3: // Limpar Dados
 				if (mamiferos.size() == 0) {
-					JOptionPane.showMessageDialog(null,"Entre com animais mamÌferos primeiramente");
+					JOptionPane.showMessageDialog(null,"Entre com animais mam√≠feros primeiramente");
 					break;
 				}
 				mamiferos.clear();
@@ -188,7 +203,7 @@ public class PetStore {
 				break;
 			case 4: // Grava Dados
 				if (mamiferos.size() == 0) {
-					JOptionPane.showMessageDialog(null,"Entre com animais mamÌferos primeiramente");
+					JOptionPane.showMessageDialog(null,"Entre com animais mam√≠feros primeiramente");
 					break;
 				}
 				salvaMamiferos(mamiferos);
@@ -207,6 +222,7 @@ public class PetStore {
 				break;
 			default:
 				opc1 = 9;
+				
 				break;
 			}
 		} while (opc1 != 9);
