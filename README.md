@@ -6,6 +6,6 @@ Projeto de estudo em Java Swing
  - [ ] @override ? 
  - [ ] Ref. polimórficas ?
  - [ ] ArrayList ?
- - [ ] Persistencia de dados ?
- - [x] Tem switch no menu de opçoes ?
- - [ ] tem try e catch de erros ?
+ - [x] Persistencia de dados 
+ - [x] Tem switch no menu de opçoes 
+ - [ ] tem try e catch de erros(Precisa Melhorar)
