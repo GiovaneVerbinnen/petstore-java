@@ -7,5 +7,5 @@ Projeto de estudo em Java Swing
  - [ ] Ref. polimórficas ?
  - [ ] ArrayList ?
  - [ ] Persistencia de dados ?
- - [ ] Tem switch no menu de opçoes ?
+ - [x] Tem switch no menu de opçoes ?
  - [ ] tem try e catch de erros ?
