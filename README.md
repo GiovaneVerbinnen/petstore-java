@@ -1,7 +1,7 @@
 # petstore-java
 Projeto de estudo em Java Swing
 
- - [ ] UML -> tem polimorfismo ?
+ - [x] UML -> tem polimorfismo ?
  - [ ] UML diz o que tem no Projeto ?
  - [ ] @override ? 
  - [ ] Ref. polimórficas ?
