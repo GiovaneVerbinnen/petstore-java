@@ -70,7 +70,14 @@ public class PetStore  extends JFrame{
 	}
 	public int retornaInteiro(String entrada) {
 		while (!this.intValido(entrada)) {
-			entrada = JOptionPane.showInputDialog(null, "Valor incorreto!\n\nDigite um número inteiro.");
+			entrada = JOptionPane.showInputDialog(null, "Valor incorreto!\n Digite um número inteiro.\n " +
+					"Opções:\n" +
+					"1. Entrar Mamíferos\n" +
+					"2. Exibir Mamíferos\n" +
+					"3. Limpar Mamíferos\n" +
+					"4. Gravar Mamíferos\n" +
+					"5. Recuperar Mamíferos\n" +
+					"9. Sair");
 		}
 		return Integer.parseInt(entrada);
 	}
