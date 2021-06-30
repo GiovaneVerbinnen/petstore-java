@@ -69,9 +69,6 @@ public class PetStore  extends JFrame{
 		}
 	}
 	public int retornaInteiro(String entrada) {
-		int numInt;
-
-
 		while (!this.intValido(entrada)) {
 			entrada = JOptionPane.showInputDialog(null, "Valor incorreto!\n\nDigite um número inteiro.");
 		}
@@ -202,7 +199,7 @@ public class PetStore  extends JFrame{
 				salvaMamiferos(mamiferos);
 				JOptionPane.showMessageDialog(null,"Dados SALVOS com sucesso!");
 				break;
-			case 5: 
+			case 5:
 				mamiferos = recuperaMamiferos();
 				if (mamiferos.size() == 0) {
 					JOptionPane.showMessageDialog(null,"Sem dados para apresentar.");
